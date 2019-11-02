@@ -12,8 +12,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        GoldenSection GS = new GoldenSection();
-        System.out.println(GS.findMin(a, b, epsilon));
+        GoldenRatio GR = new GoldenRatio();
+        System.out.println(GR.findMin(a, b, epsilon));
         Dichotomy D = new Dichotomy();
         System.out.println(D.findMin(a, b, epsilon, delta));
     }

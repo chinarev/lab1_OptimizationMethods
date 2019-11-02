@@ -2,7 +2,7 @@ package home;
 
 import static java.lang.Math.sqrt;
 
-public class GoldenSection {
+public class GoldenRatio {
 
     double findMin(double a, double b, double epsilon) {
         double x1, x2;
