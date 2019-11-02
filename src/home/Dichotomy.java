@@ -19,7 +19,7 @@ public class Dichotomy {
                 b = x2;
             if (Math.abs(b - a) < epsilon) break;
         }
-        return (a + b) / 2;
+        return Main.f((a + b) / 2);
     }
 
 
@@ -35,6 +35,6 @@ public class Dichotomy {
             else
                 b = x2;
         }
-        return (a + b) / 2;
+        return Main.f((a + b) / 2);
     }
 }
