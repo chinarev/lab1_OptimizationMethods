@@ -14,7 +14,6 @@ public class GoldenRatio {
                 a = x1;
             else
                 b = x2;
-            //if (Math.log((b-a)/(Main.epsilon))/(Math.log(1.618))) break;
 
             if (Math.abs(b - a) < epsilon) break;
         }

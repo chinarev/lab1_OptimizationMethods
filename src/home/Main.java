@@ -12,10 +12,10 @@ public class Main {
 
 
     public static void main(String[] args) {
-        System.out.println("\nМетод золотого сечения:");
+        System.out.println("Метод золотого сечения:");
         GoldenRatio GR = new GoldenRatio();
         System.out.println(GR.findMin(a, b, epsilon));
-        System.out.println("Метод дихотомии:");
+        System.out.println("\nМетод дихотомии:");
         Dichotomy D = new Dichotomy();
         System.out.println(D.findMin(a, b, epsilon, delta));
         System.out.println("\nМетод Фибоначчи:");
