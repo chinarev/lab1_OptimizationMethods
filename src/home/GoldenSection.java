@@ -18,7 +18,7 @@ public class GoldenSection {
 
             if (Math.abs(b - a) < epsilon) break;
         }
-        return (a + b) / 2;
+        return Main.f((a + b) / 2);
     }
 
 
@@ -35,6 +35,6 @@ public class GoldenSection {
             else
                 b = x2;
         }
-        return (a + b) / 2;
+        return Main.f((a + b) / 2);
     }
 }

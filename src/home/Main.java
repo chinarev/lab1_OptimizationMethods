@@ -12,10 +12,17 @@ public class Main {
 
 
     public static void main(String[] args) {
-        GoldenSection GS = new GoldenSection();
-        System.out.println(GS.findMin(a, b, epsilon));
+        System.out.println("Метод дихотомии:");
         Dichotomy D = new Dichotomy();
         System.out.println(D.findMin(a, b, epsilon, delta));
+
+        System.out.println("\nМетод золотого сечения:");
+        GoldenSection GS = new GoldenSection();
+        System.out.println(GS.findMin(a, b, epsilon));
+
+        System.out.println("\nМетод Фибоначчи:");
+        Fibonacci F = new Fibonacci();
+        System.out.println(F.findMin());
     }
 
 
