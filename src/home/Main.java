@@ -4,6 +4,7 @@ public class Main {
 
     static double a = 2;
     static double b = 200;
+    static double h; //величина шага
     static double epsilon = 0.001; //точность
     static double delta = epsilon / 3; //расстояние от середины отрезка
 
@@ -28,6 +29,13 @@ public class Main {
         System.out.println(F.findMin());
         System.out.println("Число вычислений функции для достижения заданной точности:");
         System.out.println(F.getCounter());
+
+
+        System.out.println("MEMESES: ");
+        FindMinOnLine Min = new FindMinOnLine();
+        Min.findMin(5, delta, h);
+        System.out.println(Min.getA());
+        System.out.println(Min.getB());
     }
 
 
