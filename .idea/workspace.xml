@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e47708fc-32c5-445f-83af-0349e372964d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab1_OptimizationMethods/home/Dichotomy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab1_OptimizationMethods/home/Dichotomy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab1_OptimizationMethods/home/Fibonacci.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab1_OptimizationMethods/home/Fibonacci.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab1_OptimizationMethods/home/GoldenRatio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab1_OptimizationMethods/home/GoldenRatio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab1_OptimizationMethods/home/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab1_OptimizationMethods/home/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/Dichotomy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/Dichotomy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home/Fibonacci.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/Fibonacci.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/home/GoldenRatio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/GoldenRatio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/home/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/home/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,12 +63,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="115" />
+          <entry key="java" value="475" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="115" />
+          <entry key="JAVA" value="475" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -85,11 +91,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/home/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -97,8 +103,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/home/GoldenRatio.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="459">
+              <caret line="27" column="35" lean-forward="true" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+              <folding>
+                <element signature="e#132#133#0" expanded="true" />
+                <element signature="e#159#160#0" expanded="true" />
+                <element signature="e#193#194#0" expanded="true" />
+                <element signature="e#222#223#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -106,21 +118,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/home/Dichotomy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            <state relative-caret-position="68">
+              <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
+              <folding>
+                <element signature="e#63#64#0" expanded="true" />
+                <element signature="e#90#91#0" expanded="true" />
+                <element signature="e#124#125#0" expanded="true" />
+                <element signature="e#154#155#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/home/Fibonacci.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="41" column="24" lean-forward="true" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+            <state relative-caret-position="153">
+              <caret line="9" column="63" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#321#322#0" expanded="true" />
                 <element signature="e#413#414#0" expanded="true" />
+                <element signature="e#744#745#0" expanded="true" />
+                <element signature="e#774#775#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -149,12 +169,12 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/home/Fibonocci.java" />
         <option value="$PROJECT_DIR$/src/home/GoldenSection.java" />
-        <option value="$PROJECT_DIR$/src/home/Main.java" />
+        <option value="$PROJECT_DIR$/src/home/Fibonacci.java" />
+        <option value="$PROJECT_DIR$/src/home/Fibonacci.java" />
         <option value="$PROJECT_DIR$/src/home/GoldenRatio.java" />
         <option value="$PROJECT_DIR$/src/home/Dichotomy.java" />
         <option value="$PROJECT_DIR$/src/home/Fibonacci.java" />
-        <option value="$PROJECT_DIR$/src/home/Fibonacci.java" />
-        <option value="$PROJECT_DIR$/src/home/Fibonacci.java" />
+        <option value="$PROJECT_DIR$/src/home/Main.java" />
       </list>
     </option>
   </component>
@@ -197,7 +217,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573841817208" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573845451168" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -253,7 +273,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.07439825" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -289,36 +308,50 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/home/Fibonocci.java" />
     <entry file="file://$PROJECT_DIR$/src/home/GoldenSection.java" />
-    <entry file="file://$PROJECT_DIR$/src/home/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/home/GoldenRatio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/home/Dichotomy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        <state relative-caret-position="459">
+          <caret line="27" column="35" lean-forward="true" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding>
+            <element signature="e#132#133#0" expanded="true" />
+            <element signature="e#159#160#0" expanded="true" />
+            <element signature="e#193#194#0" expanded="true" />
+            <element signature="e#222#223#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/home/Fibonacci.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="41" column="24" lean-forward="true" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        <state relative-caret-position="153">
+          <caret line="9" column="63" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#321#322#0" expanded="true" />
             <element signature="e#413#414#0" expanded="true" />
+            <element signature="e#744#745#0" expanded="true" />
+            <element signature="e#774#775#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/home/Dichotomy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
+          <folding>
+            <element signature="e#63#64#0" expanded="true" />
+            <element signature="e#90#91#0" expanded="true" />
+            <element signature="e#124#125#0" expanded="true" />
+            <element signature="e#154#155#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/home/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
