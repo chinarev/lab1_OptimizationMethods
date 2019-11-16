@@ -3,17 +3,26 @@ package home;
 
 public class Dichotomy {
     private int counter;//счётчик количества вычислений функции
+    private double length;
 
-    public Dichotomy(){
+    public Dichotomy() {
         counter = 0;
+        length = 0;
     }
 
-    public int getCounter(){
+    public int getCounter() {
         return counter;
     }
 
+    public double getLength(){
+        return length;
+    }
 
-    double findMin(double a, double b, double epsilon, double delta) {
+    double findMin() {
+        double delta = Main.delta;
+        double epsilon = Main.epsilon;
+        double a = Main.a;
+        double b = Main.b;
         double x1, x2;
         while (Math.abs(b - a) > epsilon) {
             counter++;
@@ -24,6 +33,7 @@ public class Dichotomy {
             else
                 b = x2;
         }
+        length = Math.abs(b-a);
         return Main.f((a + b) / 2);
     }
 }

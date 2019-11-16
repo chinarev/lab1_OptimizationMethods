@@ -8,12 +8,14 @@ public class Fibonacci {
     private double b0;
     private double epsilon;
     private int counter;//счётчик количества вычислений функции
+    private double length;
 
     public Fibonacci(){
         a0 = Main.a;
         b0 = Main.b;
         epsilon = Main.epsilon;
         counter = 0;
+        length = 0;
     }
 
     double fibonacciNum(int n) {
@@ -37,6 +39,8 @@ public class Fibonacci {
         return counter;
     }
 
+    public double getLength(){return length;}
+
 
     public double findMin() {
         double x1, x2;
@@ -49,7 +53,7 @@ public class Fibonacci {
             else
                 b0 = x2;
         }
-
+        length = Math.abs(b0 - a0);
         return Main.f((a0 + b0) / 2);
     }
 }
