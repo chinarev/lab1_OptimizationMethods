@@ -1,12 +1,13 @@
 package home;
 
+
 public class Main {
 
-    static final double a = 2;
-    static final double b = 200;
+    static final double a = 2; //начало заданного отрезка
+    static final double b = 200; //конец заданного отрезка
     static final double epsilon = 0.001; //точность
     static final double delta = epsilon / 3; //расстояние от середины отрезка
-    private static final double x0 = 50; //начальная точка для поиска минимума функции на прямой
+    private static final double x0 = 20; //начальная точка для поиска минимума функции на прямой
 
 
     public static void main(String[] args) {

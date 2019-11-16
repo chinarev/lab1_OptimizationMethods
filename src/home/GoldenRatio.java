@@ -3,13 +3,13 @@ package home;
 import static java.lang.Math.sqrt;
 
 public class GoldenRatio {
-    private int counter;//счётчик количества вычислений функции
-    private double length;
+    private double epsilon = Main.epsilon;
+    private double a = Main.a;
+    private double b = Main.b;
+    private int counter = 0;//счётчик количества вычислений функции
+    private double length = 0;
 
-    public GoldenRatio() {
-        counter = 0;
-        length = 0;
-    }
+    private Table table = new Table();
 
     public int getCounter() {
         return counter;
@@ -20,10 +20,7 @@ public class GoldenRatio {
     }
 
     double findMin() {
-        double epsilon = Main.epsilon;
-        double a = Main.a;
-        double b = Main.b;
-        double x1, x2;
+        double x1 = 0, x2 = 0;
         double PHI = (1 + sqrt(5)) / 2; //пропорция золотого сечения
         while (Math.abs(b - a) > epsilon) {
             counter++;
@@ -33,8 +30,13 @@ public class GoldenRatio {
                 a = x1;
             else
                 b = x2;
+
+            length = Math.abs(b - a);
+
+            table.putDataInRow(counter, a, b, length, x1, x2, Main.f(x1), Main.f(x2));
         }
-        length = Math.abs(b-a);
+        table.createTable("Метод золотого сечения");
+
         return Main.f((a + b) / 2);
     }
 }

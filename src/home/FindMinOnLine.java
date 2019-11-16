@@ -1,7 +1,6 @@
 package home;
 
 public class FindMinOnLine {
-
     private double start = 0, end = 0;//концы отрезка, содержащего точку минимума
     private int counter = 1; //т.к. шаг 1 выполняется всегда
 
@@ -41,7 +40,7 @@ public class FindMinOnLine {
 
     }
 
-    public int getCounter(){
+    public int getCounter() {
         return counter;
     }
 

@@ -4,28 +4,22 @@ import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
 public class Fibonacci {
-    private double a0;
-    private double b0;
-    private double epsilon;
-    private int counter;//счётчик количества вычислений функции
-    private double length;
+    private double a = Main.a;
+    private double b = Main.b;
+    private double epsilon = Main.epsilon;
+    private int counter = 0;//счётчик количества вычислений функции
+    private double length = 0;
 
-    public Fibonacci(){
-        a0 = Main.a;
-        b0 = Main.b;
-        epsilon = Main.epsilon;
-        counter = 0;
-        length = 0;
-    }
+    private Table table = new Table();
 
     double fibonacciNum(int n) {
         return 1 / sqrt(5) * (pow((1 + sqrt(5)) / 2, n) - pow((1 - sqrt(5)) / 2, n));
     }
 
-    private int getN(){
+    private int getN() {
         int n = 1;
-        while(true){
-            if ((b0 - a0)/epsilon < fibonacciNum(n+2)){
+        while (true) {
+            if ((b - a) / epsilon < fibonacciNum(n + 2)) {
                 counter = n;
                 return n;
             } else {
@@ -35,25 +29,33 @@ public class Fibonacci {
     }
 
 
-    public int getCounter(){
+    public int getCounter() {
         return counter;
     }
 
-    public double getLength(){return length;}
+    public double getLength() {
+        return length;
+    }
 
 
     public double findMin() {
-        double x1, x2;
+        double x1 = 0, x2 = 0;
         int n = getN();
-        for (int k = 1; k <= n; k++){
-            x1 = a0 + fibonacciNum(n) / fibonacciNum(n + 2) * (b0 - a0);
-            x2 = a0 + fibonacciNum(n + 1) / fibonacciNum(n + 2) * (b0 - a0);
+        for (int k = 1; k <= n; k++) {
+            counter = k;
+            x1 = a + fibonacciNum(n) / fibonacciNum(n + 2) * (b - a);
+            x2 = a + fibonacciNum(n + 1) / fibonacciNum(n + 2) * (b - a);
             if (Main.f(x1) >= Main.f(x2))
-                a0 = x1;
+                a = x1;
             else
-                b0 = x2;
+                b = x2;
+
+            length = Math.abs(b - a);
+
+            table.putDataInRow(counter, a, b, length, x1, x2, Main.f(x1), Main.f(x2));
         }
-        length = Math.abs(b0 - a0);
-        return Main.f((a0 + b0) / 2);
+        table.createTable("Метод Фибоначчи");
+
+        return Main.f((a + b) / 2);
     }
 }
