@@ -11,25 +11,27 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+
         System.out.println("~~~Метод золотого сечения~~~");
         GoldenRatio GR = new GoldenRatio();
         System.out.println("min = " + GR.findMin());
         System.out.println("Длина отрезка: " + GR.getLength());
-        System.out.println("Число вычислений функции для достижения заданной точности: " + GR.getCounter());
+        System.out.println("Число вычислений функции для достижения заданной точности: " + (2 + GR.getCounter())); //Перед циклом функция вычисляется два раза, а в цикле по одному разу
 
 
         System.out.println("\n~~~Метод дихотомии~~~");
         Dichotomy D = new Dichotomy();
         System.out.println("min = " + D.findMin());
         System.out.println("Длина отрезка: " + D.getLength());
-        System.out.println("Число вычислений функции для достижения заданной точности: " + D.getCounter());
+        System.out.println("Число вычислений функции для достижения заданной точности: " + 2 * D.getCounter()); //На каждой итерации функция вычисляется два раза
 
 
         System.out.println("\n~~~Метод Фибоначчи~~~");
         Fibonacci F = new Fibonacci();
         System.out.println("min = " + F.findMin());
         System.out.println("Длина отрезка: " + F.getLength());
-        System.out.println("Число вычислений функции для достижения заданной точности: " + F.getCounter());
+        System.out.println("Число вычислений функции для достижения заданной точности: " + (2 + F.getCounter())); //Перед циклом функция вычисляется два раза, а в цикле по одному разу
 
 
         System.out.println("\n~~~Поиск минимума функции на прямой~~~");
@@ -40,7 +42,7 @@ public class Main {
         System.out.println("Длина отрезка: " + Min.getLength());
         System.out.println("Начало отрезка: " + Min.getStart());
         System.out.println("Конец отрезка: " + Min.getEnd());
-        System.out.println("Число вычислений функции: " + Min.getCounter());
+        System.out.println("Количество итераций: " + Min.getCounter());
     }
 
 

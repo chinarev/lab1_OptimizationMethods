@@ -26,7 +26,7 @@ public class FindMinOnLine {
 
         defineStartAndEnd(xPrev, xNext);
         length =  getLength();
-        table.putDataInRow(counter, start, end, length, xCurr, xNext, Main.f(xCurr), Main.f(xNext));
+        table.putData(counter, start, end, length, xCurr, xNext, Main.f(xCurr), Main.f(xNext));
 
         while (Main.f(xCurr) > Main.f(xNext)) {
             h *= 2;//увеличение шага
@@ -38,7 +38,7 @@ public class FindMinOnLine {
 
             defineStartAndEnd(xPrev, xNext);
             length =  getLength();
-            table.putDataInRow(counter, start, end, length, xCurr, xNext, Main.f(xCurr), Main.f(xNext));
+            table.putData(counter, start, end, length, xCurr, xNext, Main.f(xCurr), Main.f(xNext));
         }
 
 

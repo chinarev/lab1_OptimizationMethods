@@ -33,7 +33,7 @@ public class Dichotomy {
 
             length = Math.abs(b - a);
 
-            table.putDataInRow(counter, a, b, length, x1, x2, Main.f(x1), Main.f(x2));
+            table.putData(counter, a, b, length, x1, x2, Main.f(x1), Main.f(x2));
         }
 
         table.createTable("Метод дихотомии");

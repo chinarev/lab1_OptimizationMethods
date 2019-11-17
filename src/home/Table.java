@@ -1,20 +1,13 @@
 package home;
 
-import javax.swing.*;
-import java.awt.*;
+
 import java.util.Vector;
 
-public class Table {
-    private Vector<String> columnNames;
-    private Vector<Vector<Double>> data;
-    private JTable table;
+public class Table extends BaseTable{
     private double startLength;
 
-
-    public Table() {
-        data = new Vector<>();
-        columnNames = new Vector<>();
-
+    @Override
+    public void setColumnNames(){
         columnNames.add("Номер итерации");
         columnNames.add("Начало отрезка");
         columnNames.add("Конец отрезка");
@@ -26,9 +19,7 @@ public class Table {
         columnNames.add("f(x2)");
     }
 
-
-
-    public void putDataInRow(int currCounter, double start, double end, double length, double x1, double x2, double fx1, double fx2) {
+    public void putData(int currCounter, double start, double end, double length, double x1, double x2, double fx1, double fx2){
         if (currCounter == 1){
             startLength = length;
         }
@@ -42,23 +33,11 @@ public class Table {
         oneRow.add(x2);
         oneRow.add(fx1);
         oneRow.add(fx2);
+        putDataInRow(oneRow);
+    }
+
+    @Override
+    protected void putDataInRow(Vector<Double> oneRow) {
         data.add(oneRow);
     }
-
-
-    public void createTable(String tableName) {
-        table = new JTable(data, columnNames);
-        JScrollPane scrollPane = new JScrollPane(table);
-
-        JFrame frame = new JFrame(tableName);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        frame.getContentPane().add(scrollPane);
-        frame.setPreferredSize(new Dimension(600, 500));
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-    }
-
-
 }

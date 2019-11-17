@@ -39,20 +39,31 @@ public class Fibonacci {
 
 
     public double findMin() {
-        double x1 = 0, x2 = 0;
         int n = getN();
+        double x1 = a + fibonacciNum(n) / fibonacciNum(n + 2) * (b - a);
+        double x2 = a + fibonacciNum(n + 1) / fibonacciNum(n + 2) * (b - a);
+        double f1 = Main.f(x1);
+        double f2 = Main.f(x2);
         for (int k = 1; k <= n; k++) {
             counter = k;
-            x1 = a + fibonacciNum(n) / fibonacciNum(n + 2) * (b - a);
-            x2 = a + fibonacciNum(n + 1) / fibonacciNum(n + 2) * (b - a);
-            if (Main.f(x1) >= Main.f(x2))
+
+            if (f1 >= f2) {
                 a = x1;
-            else
+                x1 = x2;
+                x2 = b - (x1 - a);
+                f1 = f2;
+                f2 = Main.f(x2);
+            } else {
                 b = x2;
+                x2 = x1;
+                x1 = a + (b - x2);
+                f2 = f1;
+                f1 = Main.f(x1);
+            }
 
             length = Math.abs(b - a);
 
-            table.putDataInRow(counter, a, b, length, x1, x2, Main.f(x1), Main.f(x2));
+            table.putData(counter, a, b, length, x1, x2, Main.f(x1), Main.f(x2));
         }
         table.createTable("Метод Фибоначчи");
 
