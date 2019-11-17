@@ -8,28 +8,36 @@ public class Table {
     private Vector<String> columnNames;
     private Vector<Vector<Double>> data;
     private JTable table;
+    private double startLength;
 
 
     public Table() {
+        data = new Vector<>();
         columnNames = new Vector<>();
+
         columnNames.add("Номер итерации");
         columnNames.add("Начало отрезка");
         columnNames.add("Конец отрезка");
         columnNames.add("Длина отрезка");
+        columnNames.add("length(i)/length(0)"); //соотношение длин текущего и начального отрезков
         columnNames.add("x1");
         columnNames.add("x2");
         columnNames.add("f(x1)");
         columnNames.add("f(x2)");
-
-        data = new Vector<>();
     }
 
+
+
     public void putDataInRow(int currCounter, double start, double end, double length, double x1, double x2, double fx1, double fx2) {
+        if (currCounter == 1){
+            startLength = length;
+        }
         Vector<Double> oneRow = new Vector<>();
         oneRow.add((double) currCounter);
         oneRow.add(start);
         oneRow.add(end);
         oneRow.add(length);
+        oneRow.add(length / startLength); //соотношение длин текущего и начального отрезков
         oneRow.add(x1);
         oneRow.add(x2);
         oneRow.add(fx1);
@@ -51,7 +59,6 @@ public class Table {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
-
 
 
 }
