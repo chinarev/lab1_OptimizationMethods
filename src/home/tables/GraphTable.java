@@ -1,10 +1,10 @@
-package home;
+package home.tables;
 
 
 import java.util.Vector;
 
 
-public class GraphTable extends BaseTable{
+public class GraphTable extends BaseTable {
 
     @Override
     public void setColumnNames(){

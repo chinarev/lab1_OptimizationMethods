@@ -5,6 +5,7 @@ import home.tables.DTable;
 import home.tables.FTable;
 import home.tables.GRTable;
 
+
 public class Main {
 
     static final double a = 2; //начало заданного отрезка
@@ -15,6 +16,9 @@ public class Main {
 
 
     public static void main(String[] args) {
+        Graph test = new Graph();
+        test.showGraph(args);
+
 
 
         DTable dGraphTable = new DTable();
