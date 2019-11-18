@@ -3,7 +3,6 @@ package home;
 import static java.lang.Math.sqrt;
 
 public class GoldenRatio {
-    private double epsilon = Main.epsilon;
     private double a = Main.a;
     private double b = Main.b;
     private int counter = 0;//счётчик количества вычислений функции
@@ -20,7 +19,7 @@ public class GoldenRatio {
     }
 
 
-    double findMin() {
+    double findMin(double epsilon) {
         double PHI = (1 + sqrt(5)) / 2; //пропорция золотого сечения
 
         double x1 = b - (b - a) / PHI;

@@ -4,8 +4,6 @@ package home;
 public class Dichotomy {
     private double a = Main.a;
     private double b = Main.b;
-    private double epsilon = Main.epsilon;
-    private double delta = Main.delta;
     private int counter = 0;//счётчик количества вычислений функции
     private double length = 0;
 
@@ -20,8 +18,9 @@ public class Dichotomy {
         return length;
     }
 
-    double findMin() {
+    double findMin(double epsilon) {
         double x1, x2;
+        double delta = epsilon / 3; //расстояние от середины отрезка
         while (Math.abs(b - a) > epsilon) {
             counter++;
             x1 = (a + b) / 2 - delta;

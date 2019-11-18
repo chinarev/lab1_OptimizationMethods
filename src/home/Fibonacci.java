@@ -6,7 +6,6 @@ import static java.lang.Math.sqrt;
 public class Fibonacci {
     private double a = Main.a;
     private double b = Main.b;
-    private double epsilon = Main.epsilon;
     private int counter = 0;//счётчик количества вычислений функции
     private double length = 0;
 
@@ -16,7 +15,7 @@ public class Fibonacci {
         return 1 / sqrt(5) * (pow((1 + sqrt(5)) / 2, n) - pow((1 - sqrt(5)) / 2, n));
     }
 
-    private int getN() {
+    private int getN(double epsilon) {
         int n = 1;
         while (true) {
             if ((b - a) / epsilon < fibonacciNum(n + 2)) {
@@ -38,8 +37,8 @@ public class Fibonacci {
     }
 
 
-    public double findMin() {
-        int n = getN();
+    public double findMin(double epsilon) {
+        int n = getN(epsilon);
         double x1 = a + fibonacciNum(n) / fibonacciNum(n + 2) * (b - a);
         double x2 = a + fibonacciNum(n + 1) / fibonacciNum(n + 2) * (b - a);
         double f1 = Main.f(x1);

@@ -22,7 +22,15 @@ public class GraphTable extends BaseTable{
         oneRow.add(Math.log(epsilon));
         oneRow.add((double)counter);
         putDataInRow(oneRow);
+    }
 
+    public void getData(){
+        Dichotomy dichotomy = new Dichotomy();
+        GoldenRatio goldenRatio = new GoldenRatio();
+        Fibonacci fibonacci = new Fibonacci();
+
+        double currEpsilon = 0.001;
+        dichotomy.findMin(currEpsilon);
     }
 
     @Override
