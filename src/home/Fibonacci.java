@@ -1,5 +1,7 @@
 package home;
 
+import home.tables.Table;
+
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
@@ -32,9 +34,12 @@ public class Fibonacci {
     }
 
 
-
     public double getLength() {
         return Math.abs(b - a);
+    }
+
+    public void showTable(){
+        table.createTable("Метод Фибоначчи");
     }
 
 
@@ -63,7 +68,6 @@ public class Fibonacci {
 
             table.putData(counter, a, b, getLength(), x1, x2, f1, f2);
         }
-        table.createTable("Метод Фибоначчи");
 
         return Main.f((a + b) / 2);
     }

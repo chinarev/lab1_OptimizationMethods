@@ -1,4 +1,4 @@
-package home;
+package home.tables;
 
 import javax.swing.*;
 import java.awt.*;

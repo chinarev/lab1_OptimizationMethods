@@ -1,5 +1,7 @@
 package home;
 
+import home.tables.Table;
+
 import static java.lang.Math.sqrt;
 
 public class GoldenRatio {
@@ -17,8 +19,11 @@ public class GoldenRatio {
         return Math.abs(b-a);
     }
 
+    public void showTable(){
+        table.createTable("Метод золотого сечения");
+    }
 
-    double findMin(double epsilon) {
+    public double findMin(double epsilon) {
         double PHI = (1 + sqrt(5)) / 2; //пропорция золотого сечения
 
         double x1 = b - (b - a) / PHI;
@@ -45,8 +50,6 @@ public class GoldenRatio {
 
             table.putData(counter, a, b, getLength(), x1, x2, f1, f2);
         }
-        table.createTable("Метод золотого сечения");
-
         return Main.f((a + b) / 2);
     }
 }

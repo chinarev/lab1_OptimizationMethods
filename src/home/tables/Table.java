@@ -1,9 +1,10 @@
-package home;
+package home.tables;
+
 
 
 import java.util.Vector;
 
-public class Table extends BaseTable{
+public class Table extends BaseTable {
     private double startLength;
 
     @Override

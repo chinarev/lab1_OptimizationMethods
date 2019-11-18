@@ -1,5 +1,7 @@
 package home;
 
+import home.tables.Table;
+
 public class FindMinOnLine {
     private double start = 0, end = 0;//концы отрезка, содержащего точку минимума
     private int counter = 1; //счётчик итераций (первый шаг выполняется всегда)

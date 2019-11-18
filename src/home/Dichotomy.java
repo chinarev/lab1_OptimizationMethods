@@ -1,6 +1,8 @@
 package home;
 
 
+import home.tables.Table;
+
 public class Dichotomy {
     private double a = Main.a;
     private double b = Main.b;
@@ -18,7 +20,12 @@ public class Dichotomy {
         return length;
     }
 
-    double findMin(double epsilon) {
+    public void showTable(){
+        table.createTable("Метод дихотомии");
+    }
+
+
+    public double findMin(double epsilon) {
         double x1, x2;
         double delta = epsilon / 3; //расстояние от середины отрезка
         while (Math.abs(b - a) > epsilon) {
@@ -34,8 +41,6 @@ public class Dichotomy {
 
             table.putData(counter, a, b, length, x1, x2, Main.f(x1), Main.f(x2));
         }
-
-        table.createTable("Метод дихотомии");
 
         return Main.f((a + b) / 2);
     }

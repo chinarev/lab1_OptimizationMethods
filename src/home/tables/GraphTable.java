@@ -6,8 +6,6 @@ import java.util.Vector;
 
 public class GraphTable extends BaseTable{
 
-
-
     @Override
     public void setColumnNames(){
         columnNames.add("epsilon");
@@ -24,19 +22,13 @@ public class GraphTable extends BaseTable{
         putDataInRow(oneRow);
     }
 
-    public void getData(){
-        Dichotomy dichotomy = new Dichotomy();
-        GoldenRatio goldenRatio = new GoldenRatio();
-        Fibonacci fibonacci = new Fibonacci();
-
-       // double currEpsilon = 0.001;
-        //dichotomy.findMin(currEpsilon);
-    }
 
     @Override
     protected void putDataInRow(Vector<Double> oneRow){
         data.add(oneRow);
     }
+
+
 
 
 

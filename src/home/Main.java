@@ -1,6 +1,10 @@
 package home;
 
 
+import home.tables.DTable;
+import home.tables.FTable;
+import home.tables.GRTable;
+
 public class Main {
 
     static final double a = 2; //начало заданного отрезка
@@ -13,9 +17,20 @@ public class Main {
     public static void main(String[] args) {
 
 
+        DTable dGraphTable = new DTable();
+        dGraphTable.getData(epsilon);
+
+        GRTable grTable = new GRTable();
+        grTable.getData(epsilon);
+
+        FTable fTable = new FTable();
+        fTable.getData(epsilon);
+
+
         System.out.println("~~~Метод золотого сечения~~~");
         GoldenRatio GR = new GoldenRatio();
         System.out.println("min = " + GR.findMin(epsilon));
+        GR.showTable();
         System.out.println("Длина отрезка: " + GR.getLength());
         System.out.println("Число вычислений функции для достижения заданной точности: " + (1 + GR.getCounter())); //Перед циклом функция вычисляется два раза, а в цикле по одному разу
 
@@ -23,6 +38,7 @@ public class Main {
         System.out.println("\n~~~Метод дихотомии~~~");
         Dichotomy D = new Dichotomy();
         System.out.println("min = " + D.findMin(epsilon));
+        D.showTable();
         System.out.println("Длина отрезка: " + D.getLength());
         System.out.println("Число вычислений функции для достижения заданной точности: " + 2 * D.getCounter()); //На каждой итерации функция вычисляется два раза
 
@@ -30,6 +46,7 @@ public class Main {
         System.out.println("\n~~~Метод Фибоначчи~~~");
         Fibonacci F = new Fibonacci();
         System.out.println("min = " + F.findMin(epsilon));
+        F.showTable();
         System.out.println("Длина отрезка: " + F.getLength());
         System.out.println("Число вычислений функции для достижения заданной точности: " + F.getTotalN()); //Перед циклом функция вычисляется два раза, а в цикле по одному разу
 
