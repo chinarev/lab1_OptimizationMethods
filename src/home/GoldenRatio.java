@@ -1,13 +1,13 @@
 package home;
 
+import home.tables.Table;
+
 import static java.lang.Math.sqrt;
 
 public class GoldenRatio {
-    private double epsilon = Main.epsilon;
     private double a = Main.a;
     private double b = Main.b;
-    private int counter = 0;//счётчик количества вычислений функции
-    private double length = 0;
+    private int counter = 1;//счётчик итераций (первый шаг выполняется всегда)
 
     private Table table = new Table();
 
@@ -16,27 +16,40 @@ public class GoldenRatio {
     }
 
     public double getLength() {
-        return length;
+        return Math.abs(b-a);
     }
 
-    double findMin() {
-        double x1 = 0, x2 = 0;
+    public void showTable(){
+        table.createTable("Метод золотого сечения");
+    }
+
+    public double findMin(double epsilon) {
         double PHI = (1 + sqrt(5)) / 2; //пропорция золотого сечения
+
+        double x1 = b - (b - a) / PHI;
+        double x2 = a + (b - a) / PHI;
+        double f1 = Main.f(x1);
+        double f2 = Main.f(x2);
+        table.putData(counter, a, b, getLength(), x1, x2, f1, f2);
+
         while (Math.abs(b - a) > epsilon) {
             counter++;
-            x1 = b - (b - a) / PHI;
-            x2 = a + (b - a) / PHI;
-            if (Main.f(x1) >= Main.f(x2))
+            if (f1 >= f2) {
                 a = x1;
-            else
+                x1 = x2;
+                f1 = f2;
+                x2 = a + (b - a) / PHI;
+                f2 = Main.f(x2);
+            } else {
                 b = x2;
+                x2 = x1;
+                f2 = f1;
+                x1 = b - (b - a) / PHI;
+                f1 = Main.f(x1);
+            }
 
-            length = Math.abs(b - a);
-
-            table.putDataInRow(counter, a, b, length, x1, x2, Main.f(x1), Main.f(x2));
+            table.putData(counter, a, b, getLength(), x1, x2, f1, f2);
         }
-        table.createTable("Метод золотого сечения");
-
         return Main.f((a + b) / 2);
     }
 }
