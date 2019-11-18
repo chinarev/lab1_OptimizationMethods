@@ -29,8 +29,8 @@ public class GraphTable extends BaseTable{
         GoldenRatio goldenRatio = new GoldenRatio();
         Fibonacci fibonacci = new Fibonacci();
 
-        double currEpsilon = 0.001;
-        dichotomy.findMin(currEpsilon);
+       // double currEpsilon = 0.001;
+        //dichotomy.findMin(currEpsilon);
     }
 
     @Override

@@ -6,8 +6,8 @@ import static java.lang.Math.sqrt;
 public class Fibonacci {
     private double a = Main.a;
     private double b = Main.b;
-    private int counter = 0;//счётчик количества вычислений функции
-    private double length = 0;
+    private int counter = 1;//счётчик итераций (первый шаг выполняется всегда)
+    private int startN; //Полученное вначале количество итераций
 
     private Table table = new Table();
 
@@ -19,33 +19,34 @@ public class Fibonacci {
         int n = 1;
         while (true) {
             if ((b - a) / epsilon < fibonacciNum(n + 2)) {
-                counter = n;
-                return n;
+                startN = n;
+                return n;//число вычислений функции
             } else {
                 n++;
             }
         }
     }
 
-
-    public int getCounter() {
-        return counter;
+    public int getTotalN(){ //количество вычислений функции
+        return startN + 2; //2 вычисления функции до входа в цикл
     }
+
+
 
     public double getLength() {
-        return length;
+        return Math.abs(b - a);
     }
 
 
-    public double findMin(double epsilon) {
+        public double findMin(double epsilon) {
         int n = getN(epsilon);
         double x1 = a + fibonacciNum(n) / fibonacciNum(n + 2) * (b - a);
         double x2 = a + fibonacciNum(n + 1) / fibonacciNum(n + 2) * (b - a);
         double f1 = Main.f(x1);
         double f2 = Main.f(x2);
+        table.putData(counter, a, b, getLength(), x1, x2, f1, f2);
         for (int k = 1; k <= n; k++) {
-            counter = k;
-
+            counter = k+1;
             if (f1 >= f2) {
                 a = x1;
                 x1 = x2;
@@ -60,12 +61,11 @@ public class Fibonacci {
                 f1 = Main.f(x1);
             }
 
-            length = Math.abs(b - a);
-
-            table.putData(counter, a, b, length, x1, x2, Main.f(x1), Main.f(x2));
+            table.putData(counter, a, b, getLength(), x1, x2, f1, f2);
         }
         table.createTable("Метод Фибоначчи");
 
         return Main.f((a + b) / 2);
     }
+
 }

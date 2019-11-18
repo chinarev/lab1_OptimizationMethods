@@ -4,7 +4,7 @@ package home;
 public class Dichotomy {
     private double a = Main.a;
     private double b = Main.b;
-    private int counter = 0;//счётчик количества вычислений функции
+    private int counter = 0;//счётчик итераций
     private double length = 0;
 
     private Table table = new Table();

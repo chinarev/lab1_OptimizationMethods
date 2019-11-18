@@ -2,8 +2,7 @@ package home;
 
 public class FindMinOnLine {
     private double start = 0, end = 0;//концы отрезка, содержащего точку минимума
-    private int counter = 1; //т.к. шаг 1 выполняется всегда
-    private double length = 0;
+    private int counter = 1; //счётчик итераций (первый шаг выполняется всегда)
 
     private Table table = new Table();
 
@@ -28,8 +27,7 @@ public class FindMinOnLine {
         double fNext = Main.f(xNext);
 
         defineStartAndEnd(xPrev, xNext);
-        length =  getLength();
-        table.putData(counter, start, end, length, xCurr, xNext, fCurr, fNext);
+        table.putData(counter, start, end, getLength(), xCurr, xNext, fCurr, fNext);
 
         while (fCurr > fNext) {
             h *= 2;//увеличение шага
@@ -40,8 +38,7 @@ public class FindMinOnLine {
             counter++;
 
             defineStartAndEnd(xPrev, xNext);
-            length =  getLength();
-            table.putData(counter, start, end, length, xCurr, xNext, fCurr, fNext);
+            table.putData(counter, start, end, getLength(), xCurr, xNext, fCurr, fNext);
 
             fCurr = fNext;
             fNext = Main.f(xNext);

@@ -5,8 +5,7 @@ import static java.lang.Math.sqrt;
 public class GoldenRatio {
     private double a = Main.a;
     private double b = Main.b;
-    private int counter = 0;//счётчик количества вычислений функции
-    private double length = 0;
+    private int counter = 1;//счётчик итераций (первый шаг выполняется всегда)
 
     private Table table = new Table();
 
@@ -15,7 +14,7 @@ public class GoldenRatio {
     }
 
     public double getLength() {
-        return length;
+        return Math.abs(b-a);
     }
 
 
@@ -26,6 +25,8 @@ public class GoldenRatio {
         double x2 = a + (b - a) / PHI;
         double f1 = Main.f(x1);
         double f2 = Main.f(x2);
+        table.putData(counter, a, b, getLength(), x1, x2, f1, f2);
+
         while (Math.abs(b - a) > epsilon) {
             counter++;
             if (f1 >= f2) {
@@ -34,8 +35,7 @@ public class GoldenRatio {
                 f1 = f2;
                 x2 = a + (b - a) / PHI;
                 f2 = Main.f(x2);
-            }
-            else {
+            } else {
                 b = x2;
                 x2 = x1;
                 f2 = f1;
@@ -43,9 +43,7 @@ public class GoldenRatio {
                 f1 = Main.f(x1);
             }
 
-            length = Math.abs(b - a);
-
-            table.putData(counter, a, b, length, x1, x2, Main.f(x1), Main.f(x2));
+            table.putData(counter, a, b, getLength(), x1, x2, f1, f2);
         }
         table.createTable("Метод золотого сечения");
 

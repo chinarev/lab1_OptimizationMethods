@@ -17,7 +17,7 @@ public class Main {
         GoldenRatio GR = new GoldenRatio();
         System.out.println("min = " + GR.findMin(epsilon));
         System.out.println("Длина отрезка: " + GR.getLength());
-        System.out.println("Число вычислений функции для достижения заданной точности: " + (2 + GR.getCounter())); //Перед циклом функция вычисляется два раза, а в цикле по одному разу
+        System.out.println("Число вычислений функции для достижения заданной точности: " + (1 + GR.getCounter())); //Перед циклом функция вычисляется два раза, а в цикле по одному разу
 
 
         System.out.println("\n~~~Метод дихотомии~~~");
@@ -31,7 +31,7 @@ public class Main {
         Fibonacci F = new Fibonacci();
         System.out.println("min = " + F.findMin(epsilon));
         System.out.println("Длина отрезка: " + F.getLength());
-        System.out.println("Число вычислений функции для достижения заданной точности: " + (2 + F.getCounter())); //Перед циклом функция вычисляется два раза, а в цикле по одному разу
+        System.out.println("Число вычислений функции для достижения заданной точности: " + F.getTotalN()); //Перед циклом функция вычисляется два раза, а в цикле по одному разу
 
 
         System.out.println("\n~~~Поиск минимума функции на прямой~~~");
