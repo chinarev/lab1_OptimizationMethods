@@ -35,8 +35,8 @@ public class Table extends BaseTable {
         oneRow.add(fx1);
         oneRow.add(fx2);
         putDataInRow(oneRow);
-    }
 
+    }
     @Override
     protected void putDataInRow(Vector<Double> oneRow) {
         data.add(oneRow);

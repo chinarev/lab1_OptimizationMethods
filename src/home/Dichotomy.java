@@ -17,7 +17,7 @@ public class Dichotomy {
     }
 
     public double getLength() {
-        return length;
+        return Math.abs(b - a);
     }
 
     public void showTable(){
@@ -37,9 +37,7 @@ public class Dichotomy {
             else
                 b = x2;
 
-            length = Math.abs(b - a);
-
-            table.putData(counter, a, b, length, x1, x2, Main.f(x1), Main.f(x2));
+            table.putData(counter, a, b, getLength(), x1, x2, Main.f(x1), Main.f(x2));
         }
 
         return Main.f((a + b) / 2);
