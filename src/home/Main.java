@@ -4,6 +4,9 @@ package home;
 import home.tables.DTable;
 import home.tables.FTable;
 import home.tables.GRTable;
+import linearRegression.GradientDescent;
+
+import java.util.Vector;
 
 
 public class Main {
@@ -16,10 +19,9 @@ public class Main {
 
 
     public static void main(String[] args) {
+        ///////////////////Первая часть///////////////////
         Graph test = new Graph();
         test.showGraph(args);
-
-
 
         DTable dGraphTable = new DTable();
         dGraphTable.getData(epsilon);
@@ -65,6 +67,15 @@ public class Main {
         System.out.println("Конец отрезка: " + Min.getEnd());
         System.out.println("Количество итераций: " + Min.getCounter());
         System.out.println("Количество вычислений функции: " + (3 + Min.getCounter())); //Перед циклом функция вычисляется три раза, а в цикле по одному разу
+
+
+        ///////////////////Вторая часть///////////////////
+
+        GradientDescent gd = new GradientDescent();
+        Vector<Double> x0 = new Vector<>(2); //начальный вектор значений x
+        x0.add(0, 100.0); //x1
+        x0.add(1, 50.0); //x2
+        gd.gradientDescent(x0, 0.00001);
     }
 
 
