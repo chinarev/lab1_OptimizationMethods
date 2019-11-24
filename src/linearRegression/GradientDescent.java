@@ -5,7 +5,7 @@ import java.util.Vector;
 public class GradientDescent {
 
     double lyambda;
-    double epsilonF = 0.001;
+    double epsilonF = 0.01;
     int counter = 1; //1 шаг выполняем перед циклом
     Vector<Double> xCurr = new Vector<>(2);
     Vector<Double> xNext = new Vector<>(2);
@@ -17,12 +17,12 @@ public class GradientDescent {
         return 100 * Math.pow((x2 - Math.pow(x1, 3)), 2) + Math.pow((1 - x1), 2);
     }
 
-    public Vector<Double> grad(Vector<Double> x){
+    public Vector<Double> grad(Vector<Double> x) {
         Vector<Double> g = new Vector<>(2);
 
         double x1 = x.elementAt(0);
         double x2 = x.elementAt(1);
-        double dx1 = -600 * x1*x1 * (-1*Math.pow(x1, 3) + x2) + 2*x1 - 2; //Частная производная для x1
+        double dx1 = -600 * x1 * x1 * (-1 * Math.pow(x1, 3) + x2) + 2 * x1 - 2; //Частная производная для x1
         double dx2 = -200 * Math.pow(x1, 3) + 200 * x2; //Частная производная для x2
 
         g.add(dx1);
@@ -30,7 +30,23 @@ public class GradientDescent {
         return g;
     }
 
-    private void printState(){
+    private double getNorm(Vector<Double> x) { //норма вектора градиента
+        return Math.sqrt(Math.pow(grad(x).elementAt(0), 2) + Math.pow(grad(x).elementAt(1), 2));
+    }
+
+    private Vector<Double> getSk(Vector<Double> x) { //???????????????
+        Vector<Double> sk = new Vector<>(2);
+        sk.add(0, grad(x).elementAt(0) / getNorm(x));
+        sk.add(1, grad(x).elementAt(1) / getNorm(x));
+        return sk;
+    }
+
+    private double getLyambda(){
+        //TODO: сделать функцию нахождения лямбды через одномерный поиск
+        return 0.0;
+    }
+
+    private void printState() {
         System.out.println("\nНомер итерации: " + counter);
         System.out.println("xCurr[x1] = " + xCurr.elementAt(0) + "\nxCurr[x2] = " + xCurr.elementAt(1));
         System.out.println("f(xCurr) = " + f(xCurr));
@@ -38,21 +54,27 @@ public class GradientDescent {
         System.out.println("f(xNext) = " + f(xNext));
     }
 
-    public Vector<Double> gradientDescent(Vector<Double> x0, double lyambda)  {
+    public Vector<Double> gradientDescent(Vector<Double> x0, double lyambda) {
         xCurr = x0;
         //1 шаг
-        xNext.add(0,xCurr.elementAt(0) - lyambda * grad(xCurr).elementAt(0));
-        xNext.add(1,xCurr.elementAt(1) - lyambda * grad(xCurr).elementAt(1));
+        //xNext.add(0,xCurr.elementAt(0) - lyambda * grad(xCurr).elementAt(0));
+        //xNext.add(1,xCurr.elementAt(1) - lyambda * grad(xCurr).elementAt(1));
+
+        xNext.add(0, xCurr.elementAt(0) - lyambda * getSk(xCurr).elementAt(0)); //????
+        xNext.add(1, xCurr.elementAt(1) - lyambda * getSk(xCurr).elementAt(1)); //????
         printState();
 
         double t = Math.abs(f(xNext) - f(xCurr));
-        while (t >= epsilonF){
+        while (t >= epsilonF) {
             //xCurr = xNext;
             xCurr.set(0, xNext.elementAt(0));
             xCurr.set(1, xNext.elementAt(1));
 
-            xNext.set(0,xCurr.elementAt(0) - lyambda * grad(xCurr).elementAt(0));
-            xNext.set(1,xCurr.elementAt(1) - lyambda * grad(xCurr).elementAt(1));
+            //xNext.set(0,xCurr.elementAt(0) - lyambda * grad(xCurr).elementAt(0));
+            //xNext.set(1,xCurr.elementAt(1) - lyambda * grad(xCurr).elementAt(1));
+
+            xNext.set(0, xCurr.elementAt(0) - lyambda * getSk(xCurr).elementAt(0)); //????
+            xNext.set(1, xCurr.elementAt(1) - lyambda * getSk(xCurr).elementAt(1)); //????
             counter++;
             printState();
             t = Math.abs(f(xNext) - f(xCurr));
