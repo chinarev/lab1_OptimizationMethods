@@ -73,9 +73,9 @@ public class Main {
 
         GradientDescent gd = new GradientDescent();
         Vector<Double> x0 = new Vector<>(2); //начальный вектор значений x
-        x0.add(0, 100.0); //x1
-        x0.add(1, 50.0); //x2
-        gd.gradientDescent(x0, 0.1); //TODO: убрать константрую лямбду
+        x0.add(0, 5.0); //x1
+        x0.add(1, 1.0); //x2
+        gd.gradientDescent(x0);
     }
 
 
