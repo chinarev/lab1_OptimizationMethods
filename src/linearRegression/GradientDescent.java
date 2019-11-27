@@ -9,9 +9,10 @@ public class GradientDescent {
 
     double lyambda;
     double epsilonF = 0.001; //точность по функции
-    double epsilonI = 0.0001; //точность по переменным
+    double epsilonI = 0.001; //точность по переменным
     double epsilonGR = 0.001; //точность по градиенту
     int counter = 1; //1 шаг выполняем перед циклом
+    int calculationsCounter = 0;
     Vector<Double> xCurr = new Vector<>(2);
     Vector<Double> xNext = new Vector<>(2);
 
@@ -50,6 +51,7 @@ public class GradientDescent {
         Vector<Double> newX = new Vector<>(2);
         newX.add(0, x.elementAt(0) - currLyambda * getSk(x).elementAt(0));
         newX.add(1, x.elementAt(1) - currLyambda * getSk(x).elementAt(1));
+        calculationsCounter++;
         return f(newX);
     }
 
@@ -76,16 +78,18 @@ public class GradientDescent {
 
     private void printState() {
         System.out.println("\nНомер итерации: " + counter);
+        System.out.println("\nКоличество вычислений функции f(x1,x2): " + calculationsCounter);
         System.out.println("xCurr[x1] = " + xCurr.elementAt(0) + "\nxCurr[x2] = " + xCurr.elementAt(1));
         System.out.println("f(xCurr) = " + f(xCurr));
         System.out.println("\nxNext[x1] = " + xNext.elementAt(0) + "\nxNext[x2] = " + xNext.elementAt(1));
         System.out.println("f(xNext) = " + f(xNext));
     }
 
-    private boolean isEpsIReached(Vector<Double> x1, Vector<Double> x2){ //достигнута ли точность по переменным
-        double dist = sqrt(pow(x1.elementAt(0) - x2.elementAt(0) ,2) + pow(x1.elementAt(1) - x2.elementAt(1) ,2));//расстояние между двумя точками
+    private boolean isEpsIReached(Vector<Double> x1, Vector<Double> x2) { //достигнута ли точность по переменным
+        double dist = sqrt(pow(x1.elementAt(0) - x2.elementAt(0), 2) + pow(x1.elementAt(1) - x2.elementAt(1), 2));//расстояние между двумя точками
         return dist < epsilonI;
     }
+
 
     public Vector<Double> gradientDescent(Vector<Double> x0) {
         xCurr = x0;
@@ -97,11 +101,15 @@ public class GradientDescent {
         xNext.add(1, xCurr.elementAt(1) - lyambda * getSk(xCurr).elementAt(1)); //????
         printState();
 
-        double t = Math.abs(f(xNext) - f(xCurr));
-        while (t >= epsilonF && getNorm(xNext) >= epsilonGR && !isEpsIReached(xNext, xCurr)) {
+        double fCurr = f(xCurr);
+        double fNext = f(xNext);
+        calculationsCounter += 2;
+
+        while (Math.abs(fNext - fCurr) >= epsilonF && getNorm(xNext) >= epsilonGR && !isEpsIReached(xNext, xCurr)) {
             //xCurr = xNext;
             xCurr.set(0, xNext.elementAt(0));
             xCurr.set(1, xNext.elementAt(1));
+            fCurr = fNext;
 
             //xNext.set(0,xCurr.elementAt(0) - lyambda * grad(xCurr).elementAt(0));
             //xNext.set(1,xCurr.elementAt(1) - lyambda * grad(xCurr).elementAt(1));
@@ -110,9 +118,10 @@ public class GradientDescent {
 
             xNext.set(0, xCurr.elementAt(0) - lyambda * getSk(xCurr).elementAt(0)); //????
             xNext.set(1, xCurr.elementAt(1) - lyambda * getSk(xCurr).elementAt(1)); //????
+            fNext = f(xNext);
+            calculationsCounter++;
             counter++;
             printState();
-            t = Math.abs(f(xNext) - f(xCurr));
         }
         return xNext;
     }

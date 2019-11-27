@@ -73,8 +73,8 @@ public class Main {
 
         GradientDescent gd = new GradientDescent();
         Vector<Double> x0 = new Vector<>(2); //начальный вектор значений x
-        x0.add(0, 2.0); //x1  1.5
-        x0.add(1, 2.0); //x2  2.5
+        x0.add(0, 1.5); //x1  1.5
+        x0.add(1, 2.5); //x2  2.5
         gd.gradientDescent(x0);
     }
 
