@@ -8,7 +8,7 @@ import static java.lang.Math.sqrt;
 public class GradientDescent {
 
     double lyambda;
-    double epsilonF = 0.001; //точность по функции
+    double epsilonF = 0.0001; //точность по функции
     double epsilonI = 0.001; //точность по переменным
     double epsilonGR = 0.001; //точность по градиенту
     int counter = 1; //1 шаг выполняем перед циклом
@@ -23,7 +23,31 @@ public class GradientDescent {
         return 100 * Math.pow((x2 - Math.pow(x1, 3)), 2) + Math.pow((1 - x1), 2);
     }
 
-    public Vector<Double> grad(Vector<Double> x) {
+//    private Vector<Double> grad(Vector<Double> x){ //численный метод вычисления производной
+//        Vector<Double> g = new Vector<>(2);
+//
+//        Vector<Double> xh1 = new Vector<>(2);
+////        double h1 = - lyambda * getSk(xCurr).elementAt(0);//delta x1
+////        double h2 = - lyambda * getSk(xCurr).elementAt(1);//delta x2
+//        double h = -lyambda;
+//        xh1.add(0, x.elementAt(0) + h);
+//        xh1.add(1, x.elementAt(1));
+//
+//
+//        Vector<Double> xh2 = new Vector<>(2);
+//        xh2.add(0, x.elementAt(0));
+//        xh2.add(1, x.elementAt(1) + h);
+//
+//        double dx1 = (f(xh1) - f(x))/h; //Частная производная для x1
+//        double dx2 = (f(xh2) - f(x))/h; //Частная производная для x2
+//
+//        g.add(dx1);
+//        g.add(dx2);
+//        return g;
+//    }
+
+
+    private Vector<Double> grad(Vector<Double> x) {//аналитический метод вычисления производной
         Vector<Double> g = new Vector<>(2);
 
         double x1 = x.elementAt(0);
@@ -35,6 +59,7 @@ public class GradientDescent {
         g.add(dx2);
         return g;
     }
+
 
     private double getNorm(Vector<Double> x) { //норма вектора градиента
         return Math.sqrt(Math.pow(grad(x).elementAt(0), 2) + Math.pow(grad(x).elementAt(1), 2));
@@ -105,7 +130,7 @@ public class GradientDescent {
         double fNext = f(xNext);
         calculationsCounter += 2;
 
-        while (Math.abs(fNext - fCurr) >= epsilonF && getNorm(xNext) >= epsilonGR && !isEpsIReached(xNext, xCurr)) {
+        while (Math.abs(fNext - fCurr) >= epsilonF) {
             //xCurr = xNext;
             xCurr.set(0, xNext.elementAt(0));
             xCurr.set(1, xNext.elementAt(1));
