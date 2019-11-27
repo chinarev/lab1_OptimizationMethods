@@ -8,8 +8,9 @@ import static java.lang.Math.sqrt;
 public class GradientDescent {
 
     double lyambda;
-    double epsilonF = 0.01; //точность по функции
-    double epsilonI = 0.01; //точность по переменным
+    double epsilonF = 0.001; //точность по функции
+    double epsilonI = 0.0001; //точность по переменным
+    double epsilonGR = 0.001; //точность по градиенту
     int counter = 1; //1 шаг выполняем перед циклом
     Vector<Double> xCurr = new Vector<>(2);
     Vector<Double> xNext = new Vector<>(2);
@@ -47,20 +48,19 @@ public class GradientDescent {
 
     private double fForSearch(Vector<Double> x, double currLyambda) { //функция для определения лямбды (функция, которую нужно минимизировать)
         Vector<Double> newX = new Vector<>(2);
-        newX.add(0, x.elementAt(0) + currLyambda * getSk(x).elementAt(0));
-        newX.add(1, x.elementAt(1) + currLyambda * getSk(x).elementAt(1));
+        newX.add(0, x.elementAt(0) - currLyambda * getSk(x).elementAt(0));
+        newX.add(1, x.elementAt(1) - currLyambda * getSk(x).elementAt(1));
         return f(newX);
     }
 
     private double getLyambda(Vector<Double> x) {
         double epsilon = 0.001; //точность для метода золотого сечения
-
-        double a = 0.0001; //нижняя граница
+        double a = 0; //нижняя граница
         double b = 1; //верхняя граница
         double lyambda1, lyambda2;
 
 
-        double delta = epsilon / 3; //расстояние от середины отрезка
+        double delta = epsilon / 4; //расстояние от середины отрезка
         while (Math.abs(b - a) > epsilon) {
             lyambda1 = (a + b) / 2 - delta;
             lyambda2 = (a + b) / 2 + delta;
@@ -98,7 +98,7 @@ public class GradientDescent {
         printState();
 
         double t = Math.abs(f(xNext) - f(xCurr));
-        while (t >= epsilonF || !isEpsIReached(xCurr, xNext)) {
+        while (t >= epsilonF && getNorm(xNext) >= epsilonGR && !isEpsIReached(xNext, xCurr)) {
             //xCurr = xNext;
             xCurr.set(0, xNext.elementAt(0));
             xCurr.set(1, xNext.elementAt(1));
