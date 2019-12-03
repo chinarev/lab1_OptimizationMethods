@@ -29,7 +29,7 @@ public class FindMinOnLine {
         double fNext = Main.f(xNext);
 
         defineStartAndEnd(xPrev, xNext);
-        table.putData(counter, start, end, getLength(), xCurr, xNext, fCurr, fNext);
+       // table.putData(counter, start, end, getLength(), xCurr, xNext, fCurr, fNext);
 
         while (fCurr > fNext) {
             h *= 2;//увеличение шага
@@ -40,7 +40,7 @@ public class FindMinOnLine {
             counter++;
 
             defineStartAndEnd(xPrev, xNext);
-            table.putData(counter, start, end, getLength(), xCurr, xNext, fCurr, fNext);
+          //  table.putData(counter, start, end, getLength(), xCurr, xNext, fCurr, fNext);
 
             fCurr = fNext;
             fNext = Main.f(xNext);

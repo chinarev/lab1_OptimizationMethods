@@ -8,7 +8,7 @@ public class GoldenRatio {
     private double a = Main.a;
     private double b = Main.b;
     private int counter = 1;//счётчик итераций (первый шаг выполняется всегда)
-
+    private double prevLen;
     private Table table = new Table();
 
     public int getCounter() {
@@ -30,7 +30,8 @@ public class GoldenRatio {
         double x2 = a + (b - a) / PHI;
         double f1 = Main.f(x1);
         double f2 = Main.f(x2);
-        table.putData(counter, a, b, getLength(), x1, x2, f1, f2);
+        prevLen = Math.abs(b-a);
+        table.putData(counter, a, b, getLength(), x1, x2, f1, f2, prevLen);
 
         while (Math.abs(b - a) > epsilon) {
             counter++;
@@ -48,7 +49,8 @@ public class GoldenRatio {
                 f1 = Main.f(x1);
             }
 
-            table.putData(counter, a, b, getLength(), x1, x2, f1, f2);
+            table.putData(counter, a, b, getLength(), x1, x2, f1, f2, prevLen);
+            prevLen = Math.abs(b-a);
         }
         return Main.f((a + b) / 2);
     }

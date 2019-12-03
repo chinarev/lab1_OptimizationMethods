@@ -10,6 +10,7 @@ public class Fibonacci {
     private double b = Main.b;
     private int counter = 1;//счётчик итераций (первый шаг выполняется всегда)
     private int startN; //Полученное вначале количество итераций
+    private double prevLen;
 
     private Table table = new Table();
 
@@ -49,7 +50,8 @@ public class Fibonacci {
         double x2 = a + fibonacciNum(n + 1) / fibonacciNum(n + 2) * (b - a);
         double f1 = Main.f(x1);
         double f2 = Main.f(x2);
-        table.putData(counter, a, b, getLength(), x1, x2, f1, f2);
+        prevLen = Math.abs(b-a);
+        table.putData(counter, a, b, getLength(), x1, x2, f1, f2, prevLen);
         for (int k = 1; k <= n; k++) {
             counter = k+1;
             if (f1 >= f2) {
@@ -66,7 +68,8 @@ public class Fibonacci {
                 f1 = Main.f(x1);
             }
 
-            table.putData(counter, a, b, getLength(), x1, x2, f1, f2);
+            table.putData(counter, a, b, getLength(), x1, x2, f1, f2, prevLen);
+            prevLen = Math.abs(b-a);
         }
 
         return Main.f((a + b) / 2);

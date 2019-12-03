@@ -81,7 +81,7 @@ public class GradientDescent {
     }
 
     private double getLyambda(Vector<Double> x) {
-        double epsilon = 0.001; //точность для метода золотого сечения
+        double epsilon = 0.001; //точность для метода дихотомии
         double a = 0; //нижняя граница
         double b = 1; //верхняя граница
         double lyambda1, lyambda2;

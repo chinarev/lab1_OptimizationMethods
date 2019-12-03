@@ -13,14 +13,14 @@ public class Table extends BaseTable {
         columnNames.add("Начало отрезка");
         columnNames.add("Конец отрезка");
         columnNames.add("Длина отрезка");
-        columnNames.add("length(i)/length(0)"); //соотношение длин текущего и начального отрезков
+        columnNames.add("length(i)/length(i-1)"); //соотношение длин следующего и текущего отрезков
         columnNames.add("x1");
         columnNames.add("x2");
         columnNames.add("f(x1)");
         columnNames.add("f(x2)");
     }
 
-    public void putData(int currCounter, double start, double end, double length, double x1, double x2, double fx1, double fx2){
+    public void putData(int currCounter, double start, double end, double length, double x1, double x2, double fx1, double fx2, double lenPrev){
         if (currCounter == 1){
             startLength = length;
         }
@@ -29,7 +29,7 @@ public class Table extends BaseTable {
         oneRow.add(start);
         oneRow.add(end);
         oneRow.add(length);
-        oneRow.add(length / startLength); //соотношение длин текущего и начального отрезков
+        oneRow.add(length / lenPrev); //соотношение длин текущего и начального отрезков
         oneRow.add(x1);
         oneRow.add(x2);
         oneRow.add(fx1);
